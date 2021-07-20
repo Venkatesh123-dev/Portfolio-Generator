@@ -1,0 +1,44 @@
+{% load static %}
+{% load google_analytics %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="HoxNox is a simple 3 step portfolio generator app.Create portfolio and share it with the world." />
+	<meta name="author" content="Anupam Dagar" />
+	<!-- for Facebook -->          
+	<meta property="og:url" content="https://hoxnox.herokuapp.com/" />
+	<meta property="og:url" content="http://hoxnox.herokuapp.com/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="HoxNox" />
+	<meta property="og:description" content="Portfolios Made Easy" />
+	<meta property="og:image" content="https://raw.githubusercontent.com/Anupam-dagar/Portfolio-Generator/master/portfolio/static/img/ogbanner.png?token=AUMZLIxYH_FXLG4BaZ8bQWLBwaHKkyNlks5ZY7TfwA%3D%3D" />
+	<meta property="og:site_name" content="hoxnox" />
+	<!-- twitter -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@anupam_dagar">
+	<meta name="twitter:title" content="HoxNox - Portfolios Made Easy">
+	<meta name="twitter:description" content="HoxNox is a simple 3 step portfolio generator app.Create portfolio and share it with the world.">
+	<meta name="twitter:creator" content="@anupam_dagar">
+	<meta name="twitter:image" content="https://raw.githubusercontent.com/Anupam-dagar/Portfolio-Generator/master/portfolio/static/img/hoxnoxgoogleapp.png?token=AUMZLDi5lImryQJrOdZSTtZoCeTc3GV2ks5ZY7VcwA%3D%3D">
+
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="icon" type="image/png" href="{% static 'img/hoxnoxlogo1.png' %}">
+	<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5952669322c0b700127e3d5f&product=sticky-share-buttons"></script>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+  	(adsbygoogle = window.adsbygoogle || []).push({
+    	google_ad_client: "ca-pub-3470943440883809",
+    	enable_page_level_ads: true
+  	});
+	</script>
+	{% block extend_head %}{% endblock %}
+	{% google_analytics %}
+</head>
+{% block content %}
+{% endblock %}
+</html>

@@ -1,0 +1,194 @@
+{% extends 'portfolio/base.html' %}
+{% load widget_tweaks %}
+{% load static % }
+{% block title %}{{detail.first_name}}'s Profile{% endblock %}
+{% block extend_head %}
+
+<link rel="stylesheet" href="{% static 'css/display.css' %}" />
+{% endblock %}
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="{% static 'js/jquery.scrollzer.min.js' %}"></script>
+<script src="{% static 'js/jquery.scrolly.min.js' %}"></script>
+<script src="{% static 'js/skel.min.js' %}"></script>
+<script src="{% static 'js/util.js' %}"></script>
+<script src="{% static 'js/display.js' %}"></script>
+
+{% block content %}
+<body>
+<div class="hameid-loader-overlay" style="width: 100%;
+    height: 100%;
+    background: url({% static 'img/preloader.gif' %}) center no-repeat #FFF ;
+    background-color: #E93978;
+    z-index: 99999;
+    position: fixed;"></div>
+<!-- Header -->
+<section id="header">
+	<header>
+		<span class="image avatar"><img src="{% static 'img/user.png' %}" alt="" /></span>
+		<h1 id="logo">{% if detail.blog %}<a href="{{ detail.blog }}">{{ detail.first_name }} {{ detail.last_name }}</a>
+			{% else %}
+			{{ detail.first_name }} {{ detail.last_name }}
+			{% endif %}
+		</h1>
+		<p>{{detail.small_bio}}</p>
+	</header>
+	<nav id="nav">
+		<ul>
+			<li><a href="#one" class="active">About</a></li>
+			<li><a href="#two">Skills</a></li>
+      {% if detail.project1_name and detail.project1_description and detail.project1_url %}
+			<li><a href="#three">Projects</a></li>
+      {% endif %}
+			<li><a href="#four">Contact</a></li>
+		</ul>
+		<a href="/">HOME</a>
+	</nav>
+	<footer>
+		<ul class="icons">
+			{% if detail.twitter %}
+			<li><a href="https://www.twitter.com/{{ detail.twitter }}" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+			{% endif %}
+			<li><a href="https://www.facebook.com/{{ detail.facebook }}" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+			{% if detail.linkedin %}
+			<li><a href="https://www.linkedin.com/{{ detail.linkedin }}" class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
+			{% endif %}
+			{% if detail.github %}
+			<li><a href="https://www.github.com/{{ detail.github }}" class="icon fa-github"><span class="label">Github</span></a></li>
+			{% endif %}
+			{% if detail.blog %}
+			<li><a href="{{ detail.blog }}" class="fa fa-rss"></a></li>
+			{% endif %}
+			<li><a href="mailto:{{ detail.email_address }}" class="icon fa-envelope"></a></li>
+		</ul>
+	</footer>
+</section>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+	<!-- Main -->
+	<div id="main">
+	<section id="banners">
+
+
+      <h2 id="overtext" style="font-family: 'Fredoka One', cursive;text-transform: uppercase;color: white;">{{ detail.first_name }} {{ detail.last_name }}</h2>
+
+		</section>
+		<!-- One -->
+		<section id="one">
+			<div class="container">
+				<header class="major">
+					<p>{{detail.main_bio}}</p>
+				</header>
+			</div>
+		</section>
+
+		<!-- Two -->
+		<section id="two">
+			<div class="container">
+				<h3>Skills</h3>
+				<p>My skills which I use in the world of computer science.</p>
+				<ul class="feature-icons">
+					<li class="fa-code">{{ detail.skill1 }}</li>
+					<li class="fa-cubes">{{ detail.skill2 }}</li>
+					{% if detail.skill3 %}
+					<li class="fa-book">{{ detail.skill3 }}</li>
+					{% endif %}
+					{% if detail.skill4 %}
+					<li class="fa-coffee">{{ detail.skill4 }}</li>
+					{% endif %}
+					{% if detail.skill5 %}
+					<li class="fa-bolt">{{ detail.skill5 }}</li>
+					{% endif %}
+					{% if detail.skill6 %}
+					<li class="fa-users">{{ detail.skill6 }}</li>
+					{% endif %}
+				</ul>
+			</div>
+		</section>
+		<!-- Three -->
+		<section id="three">
+			<div class="container">
+        {% if detail.project1_name and detail.project1_description and detail.project1_url %}
+				<h3>Projects</h3>
+				<p>Projects that I have worked on. </p>
+				<div class="features">
+					<article>
+						<a href="{{ detail.project1_url }}" class="image"><img src="{% static 'img/project1.jpg' %}" alt="" /></a>
+						<div class="inner">
+							<h4>{{ detail.project1_name }}</h4>
+							<p>{{ detail.project1_description }}</p>
+							<p><a href="{{ detail.project1_url }}">View Source Code <i class="fa fa-github fa-2x"></i></a></p>
+						</div>
+					</article>
+          {% endif %}
+					{% if detail.project2_name and detail.project2_description and detail.project2_url %}
+					<article>
+						<a href="{{ detail.project2_url }}" class="image"><img src="{% static 'img/project2.jpg' %}" alt="" /></a>
+						<div class="inner">
+							<h4>{{ detail.project2_name }}</h4>
+							<p>{{ detail.project2_description }}</p>
+							<p><a href="{{ detail.project2_url }}">View Source Code <i class="fa fa-github fa-2x"></i></a></p>
+						</div>
+					</article>
+					{% endif %}
+					{% if detail.project3_name and detail.project3_description and detail.project3_url %}
+					<article>
+						<a href="{{ detail.project3_url }}" class="image"><img src="{% static 'img/project3.png' %}" alt="" /></a>
+						<div class="inner">
+							<h4>{{ detail.project3_name }}</h4>
+							<p>{{ detail.project3_description }}</p>
+							<p><a href="{{ detail.project3_url }}">View Source Code <i class="fa fa-github fa-2x"></i></a></p>
+						</div>
+					</article>
+					{% endif %}
+				</div>
+			</div>
+		</section>
+
+		<!-- Four -->
+		<section id="four">
+			<div class="container">
+				<h3>Contact Me</h3>
+				<p>Give me call or drop an email.</p>
+				<div class="row">
+					<div class="3u 5u(xsmall)">
+						<h4>Name:</h4>
+					</div>
+					<div class="6u 6u(xsmall)"><code>{{ detail.first_name }} {{ detail.last_name }}</code></div>
+				</div>
+				<div class="row">
+					<div class="3u 5u(xsmall)">
+						<h4>Phone Number:</h4>
+					</div>
+					<div class="6u 6u(xsmall)"><code>{{ detail.phone_number }}</code></div>
+				</div>
+				<div class="row">
+					<div class="3u 5u(xsmall)">
+						<h4>E-mail:</h4>
+					</div>
+					<div class="6u 6u(xsmall)"><code>{{ detail.email_address }}</code></div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<!-- Footer -->
+	<section id="footer">
+		<div class="container">
+			<ul class="copyright">
+				<li>Portfolio generated using <a href="/">HoxNox</a></li><li>Creator: <a href="http://venkatesh.me">Venkatesh</a></li><li><a href="/">HOME</a></li><li><a href="{% url 'editform' username=detail.user pk=detail.pk %}">Edit Portfolio</a></li>
+			</ul>
+		</div>
+	</section>
+
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    jQuery(window).load(function(){
+        jQuery(".hameid-loader-overlay").fadeOut(500);
+    });
+</script>
+</body>
+{% endblock %}

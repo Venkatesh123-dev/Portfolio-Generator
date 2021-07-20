@@ -1,0 +1,225 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load i18n %}
+{% block title %}HoxNox-Enter Details{% endblock %}
+{% block extend_head %}
+<meta charset="utf-8" />
+<link rel="stylesheet" href="{% static 'css/register.css' %}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css">
+<style type="text/css">
+	form.myform fieldset {
+		display: none;
+	}
+</style>
+{% endblock %}
+{% block content %}
+<body class="is-loading">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<form method="post" class="myform" name="details">
+			{% csrf_token %}
+			<fieldset style="display: block;">
+				<section id="main">
+					<header>
+						<h1>Personal Details<a href="/"><i class="fa fa-home" style="float: right;"></i></a></h1>
+						<p>FIELDS MARKED WITH ASTERISK (*) ARE REQUIRED.</p>
+					</header>
+					<hr />
+					<h2>Tell us about yourself</h2>
+					<div class="field">
+						{% render_field form.first_name placeholder="First Name *" %}
+					</div>
+					<br>
+					<div class="field">
+						{% render_field form.last_name placeholder="Last Name" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.date_of_birth placeholder="Date of Birth (enter in YYYY-MM-DD format) *" %}
+					</div>
+					<hr />
+					<ul class="actions">
+						<a class="next button">NEXT</a>
+					</ul>
+				</section>
+			</fieldset>
+			<fieldset>
+				<section id="main">
+					<header>
+						<h1>Contact Details<a href="/"><i class="fa fa-home" style="float: right;"></i></a></h1>
+						<p>How to get in touch with you?</p>
+					</header>
+					<hr />
+					<div class="field">
+						{% render_field form.email_address placeholder="Email Address *" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.phone_number placeholder="Phone Number *" style="-moz-appearance: none;-webkit-appearance: none;-ms-appearance: none;appearance: none;border-radius: 4px;border: solid 1px #c8cccf;color: inherit;display: block;outline: 0;padding: 0 1em;text-decoration: none;width: 100%;" %}
+					</div>
+					<hr />
+					<ul class="actions">
+						<a class="previous button">Previous</a>
+						<a class="next button">NEXT</a>
+					</ul>
+				</section>
+			</fieldset>
+			<fieldset>
+				<section id="main">
+					<header>
+						<h1>Your BIO<a href="/"><i class="fa fa-home" style="float: right;"></i></a></h1>
+						<p>Time to know about you</p>
+					</header>
+					<hr />
+					<div class="field">
+						{% render_field form.small_bio placeholder="Small Bio" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.main_bio placeholder="Main Bio *" %}
+					</div>
+					<hr />
+					<ul class="actions">
+						<a class="previous button">Previous</a>
+						<a class="next button">NEXT</a>
+					</ul>
+				</section>
+			</fieldset>
+			<fieldset>
+				<section id="main">
+					<header>
+						<h1>Skills<a href="/"><i class="fa fa-home" style="float: right;"></i></a></h1>
+						<p>Your area of expertise</p>
+					</header>
+					<hr />
+					<div class="field">
+						{% render_field form.skill1 placeholder="Skill 1 *" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.skill2 placeholder="Skill 2 *" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.skill3 placeholder="Skill 3" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.skill4 placeholder="Skill 4" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.skill5 placeholder="Skill 5" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.skill6 placeholder="Skill 6" %}
+					</div>
+					<hr />
+					<ul class="actions">
+						<a class="previous button">Previous</a>
+						<a class="next button">NEXT</a>
+					</ul>
+				</section>
+			</fieldset>
+			<fieldset>
+				<section id="main">
+					<header>
+						<h1>Social Accounts<a href="/"><i class="fa fa-home" style="float: right;"></i></a></h1>
+						<p>Your Presence In The Social World</p>
+					</header>
+					<hr />
+					<div class="field">
+						{% render_field form.facebook placeholder="Facebook Username *" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.github placeholder="Github Username" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.twitter placeholder="Twitter Username" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.linkedin placeholder="Linkedin Username" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.blog placeholder="Blog Link (Include http://)" %}
+					</div>
+					<hr />
+					<ul class="actions">
+						<a class="previous button">Previous</a>
+						<a class="next button">NEXT</a>
+					</ul>
+				</section>
+			</fieldset>
+			<fieldset>
+				<section id="main">
+					<header>
+						<h1>Projects<a href="/"><i class="fa fa-home" style="float: right;"></i></a></h1>
+						<p>Your projects are ready to change the world</p>
+					</header>
+					<hr />
+					<div class="field">
+						{% render_field form.project1_name placeholder="Project 1 Name" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.project1_url placeholder="GitHub Link for Project" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.project1_description placeholder="A small description about the project 1" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.project2_name placeholder="Project 2 Name" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.project2_url placeholder="GitHub Link for Project" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.project2_description placeholder="A small description about the project 2" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.project3_name placeholder="Project 3 Name" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.project3_url placeholder="GitHub Link for Project" %}
+					</div><br>
+					<div class="field">
+						{% render_field form.project3_description placeholder="A small description about the project 3" %}
+					</div>
+					<hr />
+					<ul class="actions">
+						<li><a class="previous button">Previous</a></li>
+						<li><button type="submit" name="submit" value="{% trans 'SUBMIT' %}">SUBMIT</button></li>
+					</ul>
+				</section>
+			</fieldset>
+		</form>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<ul class="copyright">
+				<li>HOXNOX</li><li><a href="/">HOME</a></li>
+			</ul>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.validate.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/details.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/validation.js' %}"></script>
+	<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+
+	<!-- Bootstrap Core JavaScript -->
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript">
+		$('#id_date_of_birth').datepicker({
+			format: "yyyy-mm-dd",
+			endDate: '+0d',
+        	autoclose: true
+		});
+	</script>
+	<script>
+		if ('addEventListener' in window) {
+			window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+			document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+		}
+	</script>
+</body>
+{% endblock %}
